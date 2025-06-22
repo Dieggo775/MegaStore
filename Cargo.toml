@@ -1,0 +1,10 @@
+[package]
+name = "my-rust-project"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fltk = { version = "1.5", features = ["fltk-bundled"] }
+unicode-normalization = "0.1"
+csv = "1.1"          # Caso use CSV para carregar produtos
+serde = { version = "1.0", features = ["derive"] }

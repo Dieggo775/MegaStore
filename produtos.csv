@@ -1,0 +1,101 @@
+id,nome,categoria,marca
+1,Smartphone X2000,Eletrônicos,TechCorp
+2,Camiseta Algodão Premium,Vestuário,ModaBella
+3,Vaso Decorativo de Cerâmica,Decoração,CasaLinda
+4,Arroz Branco Tipo 1 (5kg),Alimentos,SaborReal
+5,Notebook Pro X15,Eletrônicos,TechCorp
+6,Calça Jeans Skinny,Vestuário,JeansCo
+7,Almofada Decorativa Floral,Decoração,CasaLinda
+8,Feijão Carioca (1kg),Alimentos,SaborReal
+9,Smartwatch FitTrack,Eletrônicos,FitLife
+10,Vestido Longo Verão,Vestuário,ModaBella
+11,Quadro Abstrato Moderno,Decoração,ArteNova
+12,Azeite Extra Virgem (500ml),Alimentos,SaborReal
+13,Fone de Ouvido Bluetooth,Eletrônicos,AudioMax
+14,Blusa de Lã Tricot,Vestuário,ConfortoTotal
+15,Candelabro de Metal,Decoração,LuzArt
+16,Café em Grãos (1kg),Alimentos,CaféMania
+17,Tablet Tab Pro,Eletrônicos,TechCorp
+18,Saia Midi Plissada,Vestuário,ModaBella
+19,Espelho Redondo com Moldura,Decoração,CasaLinda
+20,Açúcar Cristal (1kg),Alimentos,SaborReal
+21,Câmera Digital DSLR,Eletrônicos,FotoPro
+22,Calças de Moletom,Vestuário,ConfortoTotal
+23,Abajur de Mesa,Decoração,LuzArt
+24,Macarrão Espaguete (500g),Alimentos,SaborReal
+25,Smart TV 4K 55",Eletrônicos,VisãoHD
+26,Casaco de Couro,Vestuário,CouroStyle
+27,Tapete Persa,Decoração,ArteNova
+28,Leite Integral (1L),Alimentos,SaborReal
+29,Caixa de Som Bluetooth,Eletrônicos,AudioMax
+30,Shorts Jeans,Vestuário,JeansCo
+31,Vaso de Vidro Transparente,Decoração,CasaLinda
+32,Ovos (Dúzia),Alimentos,GranjaFina
+33,Console de Video Game,Eletrônicos,GamePro
+34,Camisa Polo,Vestuário,ModaBella
+35,Escultura de Resina,Decoração,ArteNova
+36,Pão Integral (500g),Alimentos,PadariaDelicia
+37,Monitor 27" LED,Eletrônicos,VisãoHD
+38,Macacão Jeans,Vestuário,JeansCo
+39,Porta Retrato Digital,Decoração,LuzArt
+40,Manteiga (200g),Alimentos,SaborReal
+41,Teclado Mecânico,Eletrônicos,TechGear
+42,Vestido de Festa,Vestuário,ModaBella
+43,Relógio de Parede,Decoração,CasaLinda
+44,Queijo Mussarela (500g),Alimentos,LaticíniosTop
+45,Mouse Gamer,Eletrônicos,GamePro
+46,Calça Social,Vestuário,ModaBella
+47,Luminária de Chão,Decoração,LuzArt
+48,Iogurte Natural (1L),Alimentos,LaticíniosTop
+49,Webcam HD,Eletrônicos,VideoPro
+50,Jaqueta Bomber,Vestuário,CouroStyle
+51,Centro de Mesa de Cristal,Decoração,CasaLinda
+52,Suco de Laranja (1L),Alimentos,FrutariaBom
+53,Impressora Multifuncional,Eletrônicos,PrintMax
+54,Saia Jeans,Vestuário,JeansCo
+55,Cesto de Roupas,Decoração,CasaLinda
+56,Biscoito de Chocolate (200g),Alimentos,DoceSabor
+57,Alto-Falante Bluetooth,Eletrônicos,AudioMax
+58,Calças Legging,Vestuário,ConfortoTotal
+59,Quadros Decorativos,Decoração,ArteNova
+60,Pão de Queijo Congelado (1kg),Alimentos,PadariaDelicia
+61,Projetor Portátil,Eletrônicos,VisãoHD
+62,Vestido de Noiva,Vestuário,ModaBella
+63,Cachepot de Cerâmica,Decoração,CasaLinda
+64,Refrigerante Cola (2L),Alimentos,BebidasTop
+65,Adaptador USB-C,Eletrônicos,TechCorp
+66,Camiseta Estampada,Vestuário,ModaBella
+67,Velas Aromáticas,Decoração,LuzArt
+68,Arroz Integral (1kg),Alimentos,SaborReal
+69,HD Externo 2TB,Eletrônicos,DadosSeguros
+70,Calça Flare,Vestuário,ModaBella
+71,Mesa de Centro,Decoração,CasaLinda
+72,Frango Congelado (1kg),Alimentos,FrangoBom
+73,Roteador Wi-Fi,Eletrônicos,ConectaMais
+74,Blusa de Frio Moletom,Vestuário,ConfortoTotal
+75,Cadeiras de Jantar,Decoração,CasaLinda
+76,Salsicha (500g),Alimentos,SuperMercado
+77,Carregador Portátil,Eletrônicos,EnergiaMax
+78,Macacão Curto,Vestuário,ModaBella
+79,Cofre Decorativo,Decoração,CasaLinda
+80,Bacon (200g),Alimentos,SuperMercado
+81,Cabo HDMI,Eletrônicos,ConectaMais
+82,Calça Pantalona,Vestuário,ModaBella
+83,Esculturas de Jardim,Decoração,CasaLinda
+84,Presunto (200g),Alimentos,SuperMercado
+85,Fone de Ouvido sem Fio,Eletrônicos,AudioMax
+86,Vestido Tubinho,Vestuário,ModaBella
+87,Enfeites de Natal,Decoração,CasaLinda
+88,Pão Francês (unidade),Alimentos,PadariaDelicia
+89,Adaptador Bluetooth,Eletrônicos,ConectaMais
+90,Shorts de Cós Alto,Vestuário,ModaBella
+91,Guarda-Sol,Decoração,CasaLinda
+92,Pizza Congelada (350g),Alimentos,PizzaBoa
+93,Placa de Vídeo,Eletrônicos,GamePro
+94,Body de Bebê,Vestuário,BebêChic
+95,Vaso Sanitário,Decoração,CasaLinda
+96,Sorvete (1L),Alimentos,SorveteriaTop
+97,Televisão 8K,Eletrônicos,VisãoHD
+98,Meias de Algodão,Vestuário,ConfortoTotal
+99,Cortinas Blackout,Decoração,CasaLinda
+100,Bolo de Chocolate (500g),Alimentos,ConfeitariaDelicia
