@@ -2,6 +2,8 @@ mod sistema_busca; // Declara o módulo sistema_busca, que contém lógica de bu
 
 mod gui;           // Declara o módulo gui, responsável pela interface gráfica do aplicativo
 
+mod recomendador; // Declara o módulo recomendador, que contém lógica para gerar recomendações de produtos
+
 use gui::MegaStoreApp;
 // Importa a struct MegaStoreApp do módulo gui para facilitar o uso no main
 

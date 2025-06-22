@@ -1,47 +1,28 @@
-# My Rust Project
+# 🛍️ Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
 
-This project is a Rust application designed to manage and search for products. It includes various modules that handle product definitions, search indexing, utility functions, and a planned command-line interface.
+## 📘 Descrição do Projeto
 
-## Project Structure
+Este projeto implementa um sistema de busca e recomendação de produtos utilizando **A Linguagem Rust** e estruturas de dados eficientes como **Tabelas Hash** e **Grafos**. A aplicação simula o cenário de uma grande empresa de e-commerce, a **MegaStore**, que busca melhorar a precisão e a velocidade das buscas em seu vasto catálogo.
 
-```
-my-rust-project
-├── src
-│   ├── main.rs          # Entry point of the application
-│   ├── lib.rs           # Main library file integrating various modules
-│   ├── produto.rs       # Defines the Produto struct and its methods
-│   ├── indice.rs        # Defines the IndiceBusca struct for searching products
-│   ├── utils.rs         # Utility functions for handling stopwords and filtering
-│   └── cli.rs           # Future development for command-line interface
-├── tests
-│   └── test_indice.rs   # Automated tests for IndiceBusca functionality
-└── Cargo.toml           # Configuration file for the Rust project
-```
+A aplicação inclui uma interface gráfica (GUI) construída com **FLTK**, permitindo buscas por **nome**, **categoria** e **marca**, além de apresentar recomendações inteligentes com base em similaridades entre os produtos.
 
-## Features
+---
 
-- **Produto Management**: Define and manage products with associated properties.
-- **Search Functionality**: Efficiently search and index products using the IndiceBusca struct.
-- **Utility Functions**: Handle common tasks such as filtering search results and managing stopwords.
-- **Future CLI Development**: A planned command-line interface for user interaction.
+## 🛠️ Tecnologias Utilizadas
 
-## Getting Started
+- **Rust** (linguagem principal)
+- **FLTK** (`fltk = "1"`) - GUI leve e rápida
+- **unicode-normalization** (`unicode-normalization = "0.1"`) - para normalização e busca sem acento
+- **Cargo** - gerenciador de pacotes e build
+- **HashMap**, **Vec**, **Grafos** - estruturas de dados nativas de Rust
+- **Modularização** com múltiplos arquivos (gui.rs, sistema_busca.rs, recomendador.rs)
 
-To get started with the project, clone the repository and run the following commands:
+---
+
+## ▶️ Como Executar o Projeto
+
+### 1. Clone o repositório:
 
 ```bash
-cargo build
-cargo run
-```
-
-## Testing
-
-To run the tests for the IndiceBusca functionality, use the following command:
-
-```bash
-cargo test
-```
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
+git clone https://github.com/seu-usuario/megastore-rust.git
+cd MY_RUST_PROJECT
