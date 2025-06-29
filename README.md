@@ -21,8 +21,26 @@ A aplicação inclui uma interface gráfica (GUI) construída com **FLTK**, perm
 
 ## ▶️ Como Executar o Projeto
 
-### 1. Clone o repositório:
-
-```bash
+-> 1. Clone o repositório:
 git clone https://github.com/Dieggo775/MegaStore.git
 cd MegaStore
+
+-> 2. Instale o Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+-> 3. Instale as dependencias do projeto
+cargo build
+
+-> 4. Execute a aplicacao
+cargo run
+
+-> 5. A interface sera aberta automaticamente
+Busque por nome, marca ou categoria
+Visualize as recomendacoes inteligentes abaixo da lista de resultados clicando no produto que voce gostaria
+
+## ▶️ Como Executar os Testes
+O projeto contem testes automatizados localizados no diretorio tests/
+
+-> 1. Para rodar o teste
+cargo test
+
