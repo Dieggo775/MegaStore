@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Send a signal to a window pointer from event_dispatch. Returns true if the event was handled. Returns false if the event was not handled or ignored."><title>handle_raw in fltk::app - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-916cea96.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="fltk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.87.0 (17067e9ac 2025-05-09)" data-channel="1.87.0" data-search-js="search-e7298875.js" data-settings-js="settings-d72f25bb.js" ><script src="../../static.files/storage-82c7156e.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-fb8c74a8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../fltk/index.html">fltk</a><span class="version">1.5.9</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">handle_<wbr>raw</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#safety" title="Safety">Safety</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="index.html">In fltk::<wbr>app</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">fltk</a>::<wbr><a href="index.html">app</a></div><h1>Function <span class="fn">handle_raw</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/fltk/app/event.rs.html#318-320">Source</a> </span></div><pre class="rust item-decl"><code>pub unsafe fn handle_raw(event: <a class="struct" href="../enums/struct.Event.html" title="struct fltk::enums::Event">Event</a>, w: <a class="type" href="type.WindowPtr.html" title="type fltk::app::WindowPtr">WindowPtr</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.87.0/std/primitive.bool.html">bool</a></code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Send a signal to a window pointer from event_dispatch.
+Returns true if the event was handled.
+Returns false if the event was not handled or ignored.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>fltk::{prelude::<span class="kw-2">*</span>, <span class="kw-2">*</span>};
+<span class="kw">const </span>CHANGE_FRAME: i32 = <span class="number">100</span>;
+<span class="kw">let </span><span class="kw-2">mut </span>wind = window::Window::default();
+<span class="kw">let </span><span class="kw-2">mut </span>but = button::Button::default();
+<span class="kw">let </span><span class="kw-2">mut </span>frame = frame::Frame::default();
+wind.end();
+wind.show();
+but.set_callback(<span class="kw">move </span>|<span class="kw">_</span>| {
+    <span class="kw">let _ </span>= app::handle_main(CHANGE_FRAME).unwrap();
+});
+
+frame.handle(<span class="kw">move </span>|f, ev| {
+    <span class="kw">if </span>ev == CHANGE_FRAME.into() {
+        f.set_label(<span class="string">"Hello world"</span>);
+        <span class="bool-val">true
+    </span>} <span class="kw">else </span>{
+        <span class="bool-val">false
+    </span>}
+});
+<span class="kw">unsafe </span>{
+    app::event_dispatch(|ev, winptr| {
+        <span class="kw">if </span>ev == CHANGE_FRAME.into() {
+            <span class="bool-val">false </span><span class="comment">// ignore CHANGE_FRAME event
+        </span>} <span class="kw">else </span>{
+            app::handle_raw(ev, winptr)
+        }
+    });
+}</code></pre></div>
+<h2 id="safety"><a class="doc-anchor" href="#safety">§</a>Safety</h2>
+<p>The window pointer must be valid</p>
+</div></details></section></div></main></body></html>

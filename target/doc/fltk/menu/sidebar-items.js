@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["MenuButtonType","WindowMenuStyle"],"fn":["delete_menu_item","mac_set_about"],"struct":["Choice","MacAppMenu","MenuBar","MenuButton","MenuFlag","MenuItem","SysMenuBar"]};

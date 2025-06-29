@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["browser","button","dialog","draw","fl","frame","group","image","input","menu","misc","prefs","printer","surface","table","term","text","tree","utils","valuator","widget","window"]};

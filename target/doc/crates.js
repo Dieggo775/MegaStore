@@ -1,0 +1,2 @@
+window.ALL_CRATES = ["bitflags","crossbeam_channel","crossbeam_utils","csv","csv_core","fltk","fltk_sys","itoa","memchr","my_rust_project","once_cell","paste","proc_macro2","quote","ryu","serde","serde_derive","syn","tinyvec","tinyvec_macros","ttf_parser","unicode_ident","unicode_normalization"];
+//{"start":21,"fragment_lengths":[10,20,18,6,11,7,11,7,9,18,12,8,14,8,6,8,15,6,10,17,13,16,24]}

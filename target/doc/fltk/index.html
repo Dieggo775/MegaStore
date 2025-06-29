@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="fltk-rs"><title>fltk - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-916cea96.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="fltk" data-themes="" data-resource-suffix="" data-rustdoc-version="1.87.0 (17067e9ac 2025-05-09)" data-channel="1.87.0" data-search-js="search-e7298875.js" data-settings-js="settings-d72f25bb.js" ><script src="../static.files/storage-82c7156e.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-fb8c74a8.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../fltk/index.html">fltk</a><span class="version">1.5.9</span></h2></div><div class="sidebar-elems"><ul class="block"><li><a id="all-types" href="all.html">All Items</a></li></ul><section id="rustdoc-toc"><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#fltk-rs" title="fltk-rs">fltk-rs</a><ul><li><a href="#usage" title="Usage">Usage</a></li><li><a href="#build-dependencies" title="Build Dependencies">Build Dependencies</a></li><li><a href="#runtime-dependencies" title="Runtime Dependencies">Runtime Dependencies</a></li><li><a href="#features" title="Features">Features</a></li><li><a href="#faq" title="FAQ">FAQ</a></li><li><a href="#building" title="Building">Building</a></li><li><a href="#currently-implemented-types" title="Currently implemented types:">Currently implemented types:</a></li><li><a href="#examples" title="Examples">Examples</a></li><li><a href="#tutorials" title="Tutorials">Tutorials</a></li></ul></li></ul><h3><a href="#modules">Crate Items</a></h3><ul class="block"><li><a href="#modules" title="Modules">Modules</a></li><li><a href="#macros" title="Macros">Macros</a></li></ul></section><div id="rustdoc-modnav"></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1>Crate <span>fltk</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../src/fltk/lib.rs.html#1-86">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="fltk-rs"><a class="doc-anchor" href="#fltk-rs">§</a>fltk-rs</h2>
+<p><a href="https://docs.rs/fltk"><img src="https://docs.rs/fltk/badge.svg" alt="Documentation" /></a>
+<a href="https://crates.io/crates/fltk"><img src="https://img.shields.io/crates/v/fltk.svg" alt="Crates.io" /></a>
+<a href="https://github.com/fltk-rs/fltk-rs/blob/master/LICENSE"><img src="https://img.shields.io/crates/l/fltk.svg" alt="License" /></a>
+<a href="https://github.com/fltk-rs/fltk-rs/actions"><img src="https://github.com/fltk-rs/fltk-rs/workflows/Build/badge.svg?branch=master" alt="Build" /></a></p>
+<p>Rust bindings for the FLTK 1.4 Graphical User Interface library.</p>
+<p>The fltk crate is a cross-platform lightweight gui library which can be statically linked to produce small, self-contained and fast gui applications.</p>
+<p>Resources:</p>
+<ul>
+<li><a href="https://fltk-rs.github.io/fltk-book/">Book</a></li>
+<li><a href="https://flatig.vip/fltk-book-zh">本書的中文翻譯</a></li>
+<li><a href="https://docs.rs/fltk">Documentation</a></li>
+<li><a href="https://github.com/fltk-rs/fltk-rs#tutorials">Videos</a></li>
+<li><a href="https://github.com/fltk-rs/fltk-rs/discussions">Discussions</a></li>
+<li><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples">Examples</a></li>
+<li><a href="https://github.com/fltk-rs/demos">Demos</a></li>
+<li><a href="https://github.com/tdryer/7guis-fltk-rs">7guis-fltk-rs</a></li>
+<li><a href="https://github.com/wyhinton/FLTK-RS-Examples">FLTK-RS-Examples</a></li>
+<li>Erco’s FLTK cheat <a href="http://seriss.com/people/erco/fltk/">page</a>, which is an excellent FLTK C++ reference.</li>
+</ul>
+<p>Why choose FLTK?</p>
+<ul>
+<li>Lightweight. Small binary, around 1mb after stripping. <a href="https://szibele.com/memory-footprint-of-gui-toolkits/">Small memory footprint</a>.</li>
+<li>Speed. Fast to install, fast to build, fast at startup and fast at runtime.</li>
+<li>Single executable. No DLLs to deploy.</li>
+<li>Supports old architectures.</li>
+<li>FLTK’s permissive license which allows static linking for closed-source applications.</li>
+<li>Themeability (5 supported schemes: Base, GTK, Plastic, Gleam and Oxy), and additional theming using <a href="https://crates.io/crates/fltk-theme">fltk-theme</a>.</li>
+<li>Provides around 80 customizable widgets.</li>
+<li>Has inbuilt image support.</li>
+</ul>
+<p>Here is a <a href="https://en.wikipedia.org/wiki/FLTK#Use">list</a> of software using FLTK. For software using fltk-rs, check <a href="https://github.com/fltk-rs/fltk-rs/issues/418">here</a>.</p>
+<ul>
+<li><a href="https://github.com/fltk/fltk">Link</a> to the official FLTK repository.</li>
+<li><a href="https://www.fltk.org/doc-1.4/index.html">Link</a> to the official documentation.</li>
+</ul>
+<h3 id="usage"><a class="doc-anchor" href="#usage">§</a>Usage</h3>
+<p>Just add the following to your project’s Cargo.toml file:</p>
+<div class="example-wrap"><pre class="language-toml"><code>[dependencies]
+fltk = &quot;^1.5&quot;</code></pre></div>
+<p>To use the latest changes in the repo:</p>
+<div class="example-wrap"><pre class="language-toml"><code>[dependencies]
+fltk = { version = &quot;^1.5&quot;, git = &quot;https://github.com/fltk-rs/fltk-rs&quot; }</code></pre></div>
+<p>Or if you have other depenendencies which depend on fltk-rs:</p>
+<div class="example-wrap"><pre class="language-toml"><code>[dependencies]
+fltk = &quot;^1.5&quot;
+
+[patch.crates-io]
+fltk = { git = &quot;https://github.com/fltk-rs/fltk-rs&quot; }</code></pre></div>
+<p>To use the bundled libs (available for x64 windows (msvc &amp; gnu (msys2-mingw)), x64 &amp; aarch64 linux &amp; macos):</p>
+<div class="example-wrap"><pre class="language-toml"><code>[dependencies]
+fltk = { version = &quot;^1.5&quot;, features = [&quot;fltk-bundled&quot;] }</code></pre></div>
+<p>The library is automatically built and statically linked to your binary.</p>
+<p>An example hello world application:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>fltk::{app, prelude::<span class="kw-2">*</span>, window::Window};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>app = app::App::default();
+    <span class="kw">let </span><span class="kw-2">mut </span>wind = Window::new(<span class="number">100</span>, <span class="number">100</span>, <span class="number">400</span>, <span class="number">300</span>, <span class="string">"Hello from rust"</span>);
+    wind.end();
+    wind.show();
+    app.run().unwrap();
+}</code></pre></div>
+<p>Another example showing the basic callback functionality:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>fltk::{app, button::Button, frame::Frame, prelude::<span class="kw-2">*</span>, window::Window};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>app = app::App::default();
+    <span class="kw">let </span><span class="kw-2">mut </span>wind = Window::new(<span class="number">100</span>, <span class="number">100</span>, <span class="number">400</span>, <span class="number">300</span>, <span class="string">"Hello from rust"</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>frame = Frame::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">200</span>, <span class="string">""</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>but = Button::new(<span class="number">160</span>, <span class="number">210</span>, <span class="number">80</span>, <span class="number">40</span>, <span class="string">"Click me!"</span>);
+    wind.end();
+    wind.show();
+    but.set_callback(<span class="kw">move </span>|<span class="kw">_</span>| frame.set_label(<span class="string">"Hello World!"</span>)); <span class="comment">// the closure capture is mutable borrow to our button
+    </span>app.run().unwrap();
+}</code></pre></div>
+<p>Please check the <a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples">examples</a> directory for more examples.
+You will notice that all widgets are instantiated with a new() method, taking the x and y coordinates, the width and height of the widget, as well as a label which can be left blank if needed. Another way to initialize a widget is using the builder pattern: (The following buttons are equivalent)</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>fltk::{button::Button, prelude::<span class="kw-2">*</span>};
+<span class="kw">let </span>but1 = Button::new(<span class="number">10</span>, <span class="number">10</span>, <span class="number">80</span>, <span class="number">40</span>, <span class="string">"Button 1"</span>);
+
+<span class="kw">let </span>but2 = Button::default()
+    .with_pos(<span class="number">10</span>, <span class="number">10</span>)
+    .with_size(<span class="number">80</span>, <span class="number">40</span>)
+    .with_label(<span class="string">"Button 2"</span>);</code></pre></div>
+<p>An example of a counter showing use of the builder pattern:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>fltk::{app, button::Button, frame::Frame, prelude::<span class="kw-2">*</span>, window::Window};
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>app = app::App::default();
+    <span class="kw">let </span><span class="kw-2">mut </span>wind = Window::default()
+        .with_size(<span class="number">160</span>, <span class="number">200</span>)
+        .center_screen()
+        .with_label(<span class="string">"Counter"</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>frame = Frame::default()
+        .with_size(<span class="number">100</span>, <span class="number">40</span>)
+        .center_of(<span class="kw-2">&amp;</span>wind)
+        .with_label(<span class="string">"0"</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>but_inc = Button::default()
+        .size_of(<span class="kw-2">&amp;</span>frame)
+        .above_of(<span class="kw-2">&amp;</span>frame, <span class="number">0</span>)
+        .with_label(<span class="string">"+"</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>but_dec = Button::default()
+        .size_of(<span class="kw-2">&amp;</span>frame)
+        .below_of(<span class="kw-2">&amp;</span>frame, <span class="number">0</span>)
+        .with_label(<span class="string">"-"</span>);
+    wind.make_resizable(<span class="bool-val">true</span>);
+    wind.end();
+    wind.show();
+    <span class="comment">/* Event handling */
+    </span>app.run().unwrap();
+}</code></pre></div>
+<p>Alternatively, you can use Flex (for flexbox layouts), Pack or <a href="https://github.com/fltk-rs/fltk-grid">Grid</a>:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>fltk::{app, button::Button, frame::Frame, group::Flex, prelude::<span class="kw-2">*</span>, window::Window};
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>app = app::App::default();
+    <span class="kw">let </span><span class="kw-2">mut </span>wind = Window::default().with_size(<span class="number">160</span>, <span class="number">200</span>).with_label(<span class="string">"Counter"</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>flex = Flex::default().with_size(<span class="number">120</span>, <span class="number">140</span>).center_of_parent().column();
+    <span class="kw">let </span><span class="kw-2">mut </span>but_inc = Button::default().with_label(<span class="string">"+"</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>frame = Frame::default().with_label(<span class="string">"0"</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>but_dec = Button::default().with_label(<span class="string">"-"</span>);
+    flex.end();
+    wind.end();
+    wind.show();
+    app.run().unwrap();
+}</code></pre></div>
+<p>Another example:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>fltk::{app, button::Button, frame::Frame, group::Flex, prelude::<span class="kw-2">*</span>, window::Window};
+
+<span class="kw">fn </span>main() {
+    <span class="kw">let </span>app = app::App::default();
+    <span class="kw">let </span><span class="kw-2">mut </span>wind = Window::default().with_size(<span class="number">400</span>, <span class="number">300</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>col = Flex::default_fill().column();
+    col.set_margins(<span class="number">120</span>, <span class="number">80</span>, <span class="number">120</span>, <span class="number">80</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>frame = Frame::default();
+    <span class="kw">let </span><span class="kw-2">mut </span>but = Button::default().with_label(<span class="string">"Click me!"</span>);
+    col.fixed(<span class="kw-2">&amp;</span>but, <span class="number">40</span>);
+    col.end();
+    wind.end();
+    wind.show();
+
+    but.set_callback(<span class="kw">move </span>|<span class="kw">_</span>| frame.set_label(<span class="string">"Hello world"</span>));
+
+    app.run().unwrap();
+}</code></pre></div>
+<h4 id="events"><a class="doc-anchor" href="#events">§</a>Events</h4>
+<p>Events can be handled using the <code>set_callback</code> method (as above) or the available <code>fltk::app::set_callback()</code> free function, which will handle the default trigger of each widget(like clicks for buttons):</p>
+
+<div class="example-wrap ignore"><a href="#" class="tooltip" title="This example is not tested">ⓘ</a><pre class="rust rust-example-rendered"><code>    <span class="comment">/* previous hello world code */
+    </span>but.set_callback(<span class="kw">move </span>|<span class="kw">_</span>| frame.set_label(<span class="string">"Hello World!"</span>));
+    another_but.set_callback(|this_button| this_button.set_label(<span class="string">"Works"</span>));
+    app.run().unwrap();</code></pre></div>
+<p>Another way is to use message passing:</p>
+
+<div class="example-wrap ignore"><a href="#" class="tooltip" title="This example is not tested">ⓘ</a><pre class="rust rust-example-rendered"><code>    <span class="comment">/* previous counter code */
+    </span><span class="kw">let </span>(s, r) = app::channel::&lt;Message&gt;();
+
+    but_inc.emit(s, Message::Increment);
+    but_dec.emit(s, Message::Decrement);
+    
+    <span class="kw">while </span>app.wait() {
+        <span class="kw">let </span>label: i32 = frame.label().parse().unwrap();
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(msg) = r.recv() {
+            <span class="kw">match </span>msg {
+                Message::Increment =&gt; frame.set_label(<span class="kw-2">&amp;</span>(label + <span class="number">1</span>).to_string()),
+                Message::Decrement =&gt; frame.set_label(<span class="kw-2">&amp;</span>(label - <span class="number">1</span>).to_string()),
+            }
+        }
+    }</code></pre></div>
+<p>For the remainder of the code, check the full example <a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/counter2.rs">here</a>.</p>
+<p>For custom event handling, the handle() method can be used:</p>
+
+<div class="example-wrap ignore"><a href="#" class="tooltip" title="This example is not tested">ⓘ</a><pre class="rust rust-example-rendered"><code>    some_widget.handle(<span class="kw">move </span>|widget, ev: Event| {
+        <span class="kw">match </span>ev {
+            Event::Push =&gt; {
+                <span class="macro">println!</span>(<span class="string">"Pushed!"</span>);
+                <span class="bool-val">true
+            </span>},
+            <span class="comment">/* other events to be handled */
+            </span><span class="kw">_ </span>=&gt; <span class="bool-val">false</span>,
+        }
+    });</code></pre></div>
+<p>Handled or ignored events using the handle method should return true, unhandled events should return false. More examples are available in the fltk/examples directory.</p>
+<p>For an alternative event handling mechanism using an immediate-mode approach, check the <a href="https://crates.io/crates/fltk-evented">fltk-evented crate</a>.</p>
+<h4 id="theming"><a class="doc-anchor" href="#theming">§</a>Theming</h4>
+<p>FLTK offers 5 application schemes:</p>
+<ul>
+<li>Base</li>
+<li>Gtk</li>
+<li>Gleam</li>
+<li>Plastic</li>
+<li>Oxy</li>
+</ul>
+<p>(Additional theming can be found in the <a href="https://crates.io/crates/fltk-theme">fltk-theme</a> crate)</p>
+<p>These can be set using the <code>App::with_scheme()</code> method.</p>
+
+<div class="example-wrap ignore"><a href="#" class="tooltip" title="This example is not tested">ⓘ</a><pre class="rust rust-example-rendered"><code><span class="kw">let </span>app = app::App::default().with_scheme(app::Scheme::Gleam);</code></pre></div>
+<p>Themes of individual widgets can be optionally modified using the provided methods in the <code>WidgetExt</code> trait, such as <code>set_color()</code>, <code>set_label_font()</code>, <code>set_frame()</code> etc:</p>
+
+<div class="example-wrap ignore"><a href="#" class="tooltip" title="This example is not tested">ⓘ</a><pre class="rust rust-example-rendered"><code>    some_button.set_color(Color::Light1); <span class="comment">// You can use one of the provided colors in the fltk enums
+    </span>some_button.set_color(Color::from_rgb(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)); <span class="comment">// Or you can specify a color by rgb or hex/u32 value
+    </span>some_button.set_color(Color::from_u32(<span class="number">0xffebee</span>));
+    some_button.set_frame(FrameType::RoundUpBox);
+    some_button.set_font(Font::TimesItalic);</code></pre></div>
+<p>For default application colors, fltk-rs provides <code>app::background()</code>, <code>app::background2()</code> and <code>app::foreground()</code>. You can also specify the default application selection/inactive colors, font, label size, frame type, scrollbar size, menu line-spacing. Additionally the <a href="https://crates.io/crates/fltk-theme">fltk-theme</a> crate offers some other predefined color maps (dark theme, tan etc) and widget themes which can be loaded into your application.</p>
+<h3 id="build-dependencies"><a class="doc-anchor" href="#build-dependencies">§</a>Build Dependencies</h3>
+<p>Rust (version &gt; 1.63), CMake (version &gt; 3.15), Git and a C++17 compiler need to be installed and in your PATH for a cross-platform build from source. <a href="https://github.com/ninja-build/ninja">Ninja</a> is recommended, but not required. This crate also offers a bundled form of fltk on selected x86_64 and aarch64 platforms (Windows (msvc and gnu), MacOS, Linux), this can be enabled using the fltk-bundled feature flag as mentioned in the usage section (this requires curl and tar to download and unpack the bundled libraries).</p>
+<ul>
+<li>Windows:
+<ul>
+<li>MSVC: Windows SDK</li>
+<li>Gnu: No dependencies</li>
+</ul>
+</li>
+<li>MacOS: MacOS SDK (installed as part of xcode or the xcode command line tools).</li>
+<li>Linux/BSD: X11 (and wayland for <code>use-wayland</code> feature flag) and OpenGL development headers need to be installed for development. The libraries themselves are normally available on linux/bsd distros with a graphical user interface.</li>
+</ul>
+<p>For Debian-based GUI distributions, that means running:</p>
+<div class="example-wrap"><pre class="language-bash"><code>sudo apt-get install libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev libpango1.0-dev libgl1-mesa-dev libglu1-mesa-dev</code></pre></div>
+<p>For RHEL-based GUI distributions, that means running:</p>
+<div class="example-wrap"><pre class="language-bash"><code>sudo yum groupinstall &quot;X Software Development&quot; &amp;&amp; sudo yum install pango-devel libXinerama-devel libstdc++-static</code></pre></div>
+<p>For Arch-based GUI distributions, that means running:</p>
+<div class="example-wrap"><pre class="language-bash"><code>sudo pacman -S libx11 libxext libxft libxinerama libxcursor libxrender libxfixes pango cairo libgl mesa --needed</code></pre></div>
+<p>For Alpine linux:</p>
+<div class="example-wrap"><pre class="language-bash"><code>apk add pango-dev fontconfig-dev libxinerama-dev libxfixes-dev libxcursor-dev mesa-gl</code></pre></div>
+<p>For NixOS (Linux distribution) this <code>nix-shell</code> environment can be used:</p>
+<div class="example-wrap"><pre class="language-bash"><code>nix-shell --packages rustc cmake git gcc xorg.libXext xorg.libXft xorg.libXinerama xorg.libXcursor xorg.libXrender xorg.libXfixes libcerf pango cairo libGL mesa pkg-config</code></pre></div>
+<p>For Freebsd:</p>
+<div class="example-wrap"><pre class="language-bash"><code>pkg install -y cairo pango fontconfig freetype2 libX11 libXext libXfixes mesa-libs
+# building might require setting `CPATH=/usr/local/include` and `LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib</code></pre></div><h3 id="runtime-dependencies"><a class="doc-anchor" href="#runtime-dependencies">§</a>Runtime Dependencies</h3>
+<ul>
+<li>Windows: None</li>
+<li>MacOS: None</li>
+<li>Linux: You need X11 libraries, as well as pango and cairo for drawing (and OpenGL if you want to enable the enable-glwindow feature):</li>
+</ul>
+<div class="example-wrap"><pre class="language-bash"><code>apt-get install -qq --no-install-recommends libx11-6 libxinerama1 libxft2 libxext6 libxcursor1 libxrender1 libxfixes3 libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libpangoxft-1.0-0 libglib2.0-0 libfontconfig1 libglu1-mesa libgl1</code></pre></div>
+<p>Note that if you installed the build dependencies, it will also install the runtime dependencies automatically as well.</p>
+<p>Also note that most graphical desktop environments already have these libs already installed. This list can be useful if you want to test your already built package in CI/docker (where there is no graphical user interface).</p>
+<h3 id="features"><a class="doc-anchor" href="#features">§</a>Features</h3>
+<p>The following are the features offered by the crate:</p>
+<ul>
+<li>use-ninja: Uses the ninja build system if available for a faster build, especially on Windows.</li>
+<li>no-pango: Build without pango support on Linux/BSD, if rtl/cjk font support is not needed.</li>
+<li>fltk-bundled: Support for bundled versions of cfltk and fltk on selected platforms (requires curl and tar)</li>
+<li>enable-glwindow: Support for drawing using OpenGL functions.</li>
+<li>system-libpng: Uses the system libpng</li>
+<li>system-libjpeg: Uses the system libjpeg</li>
+<li>system-zlib: Uses the system zlib</li>
+<li>use-wayland: Uses FLTK’s wayland hybrid backend (runs on wayland when present, and on X11 when not present). Requires libwayland-dev, wayland-protocols, libdbus-1-dev, libxkbcommon-dev, libgtk-3-dev (optional, for the GTK-style titlebar), in addition to the X11 development packages. Sample <a href="https://github.com/MoAlyousef/test_wayland/blob/main/.github/workflows/rust.yml">CI</a>.</li>
+<li>fltk-config: Uses an already installed FLTK’s fltk-config to build this crate against. This still requires FLTK 1.4. Useful for reducing build times, testing against a locally built FLTK and doesn’t need to invoke neither git nor cmake.</li>
+</ul>
+<h3 id="faq"><a class="doc-anchor" href="#faq">§</a>FAQ</h3>
+<p>please check the <a href="FAQ.md">FAQ</a> page for frequently asked questions, encountered issues, guides on deployment, and contribution.</p>
+<h3 id="building"><a class="doc-anchor" href="#building">§</a>Building</h3>
+<p>To build, just run:</p>
+<div class="example-wrap"><pre class="language-bash"><code>git clone https://github.com/fltk-rs/fltk-rs --recurse-submodules
+cd fltk-rs
+cargo build</code></pre></div><h3 id="currently-implemented-types"><a class="doc-anchor" href="#currently-implemented-types">§</a>Currently implemented types:</h3><h4 id="image-types"><a class="doc-anchor" href="#image-types">§</a>Image types:</h4>
+<ul>
+<li>SharedImage</li>
+<li>BmpImage</li>
+<li>JpegImage</li>
+<li>GifImage</li>
+<li>AnimGifImage</li>
+<li>PngImage</li>
+<li>SvgImage</li>
+<li>Pixmap</li>
+<li>RgbImage</li>
+<li>XpmImage</li>
+<li>XbmImage</li>
+<li>PnmImage</li>
+<li>TiledImage</li>
+</ul>
+<h4 id="widgets"><a class="doc-anchor" href="#widgets">§</a>Widgets:</h4>
+<ul>
+<li>Buttons
+<ul>
+<li>Button</li>
+<li>RadioButton</li>
+<li>ToggleButton</li>
+<li>RoundButton</li>
+<li>CheckButton</li>
+<li>LightButton</li>
+<li>RepeatButton</li>
+<li>RadioLightButton</li>
+<li>RadioRoundButton</li>
+<li>ReturnButton</li>
+<li>ShortcutButton</li>
+</ul>
+</li>
+<li>Dialogs
+<ul>
+<li>Native FileDialog</li>
+<li>FileChooser</li>
+<li>HelpDialog</li>
+<li>Message dialog</li>
+<li>Alert dialog</li>
+<li>Password dialog</li>
+<li>Choice dialog</li>
+<li>Input dialog</li>
+<li>ColorChooser dialog</li>
+</ul>
+</li>
+<li>Frame (Fl_Box)</li>
+<li>Windows
+<ul>
+<li>Window</li>
+<li>SingleWindow (single buffered)</li>
+<li>DoubleWindow (double buffered)</li>
+<li>MenuWindow</li>
+<li>OverlayWindow</li>
+<li>GlWindow (requires the “enable-glwindow” flag)</li>
+<li>Experimental GlWidgetWindow (requires the “enable-glwindow” flag)</li>
+</ul>
+</li>
+<li>Groups
+<ul>
+<li>Group</li>
+<li>Pack (Horizontal and Vertical)</li>
+<li>Tabs</li>
+<li>Scroll</li>
+<li>Tile</li>
+<li>Wizard</li>
+<li>ColorChooser</li>
+<li>Flex (Column and Row)</li>
+<li>Grid (<a href="https://github.com/fltk-rs/fltk-grid">https://github.com/fltk-rs/fltk-grid</a>)</li>
+</ul>
+</li>
+<li>Text display widgets
+<ul>
+<li>TextDisplay</li>
+<li>TextEditor</li>
+<li>SimpleTerminal</li>
+</ul>
+</li>
+<li>Input widgets
+<ul>
+<li>Input</li>
+<li>IntInput</li>
+<li>FloatInput</li>
+<li>MultilineInput</li>
+<li>SecretInput</li>
+<li>FileInput</li>
+</ul>
+</li>
+<li>Output widgets
+<ul>
+<li>Output</li>
+<li>MultilineOutput</li>
+</ul>
+</li>
+<li>Menu widgets
+<ul>
+<li>MenuBar</li>
+<li>MenuItem</li>
+<li>Choice (dropdown list)</li>
+<li>SysMenuBar (MacOS menu bar which appears at the top of the screen)</li>
+<li>MenuButton</li>
+</ul>
+</li>
+<li>Valuator widgets
+<ul>
+<li>Slider</li>
+<li>NiceSlider</li>
+<li>ValueSlider</li>
+<li>Dial</li>
+<li>LineDial</li>
+<li>Counter</li>
+<li>Scrollbar</li>
+<li>Roller</li>
+<li>Adjuster</li>
+<li>ValueInput</li>
+<li>ValueOutput</li>
+<li>FillSlider</li>
+<li>FillDial</li>
+<li>HorSlider (Horizontal slider)</li>
+<li>HorFillSlider</li>
+<li>HorNiceSlider</li>
+<li>HorValueSlider</li>
+</ul>
+</li>
+<li>Browsing widgets
+<ul>
+<li>Browser</li>
+<li>SelectBrowser</li>
+<li>HoldBrowser</li>
+<li>MultiBrowser</li>
+<li>FileBrowser</li>
+<li>CheckBrowser</li>
+</ul>
+</li>
+<li>Miscelaneous widgets
+<ul>
+<li>Spinner</li>
+<li>Clock (Round and Square)</li>
+<li>Chart (several chart types are available)</li>
+<li>Progress (progress bar)</li>
+<li>Tooltip</li>
+<li>InputChoice</li>
+<li>HelpView</li>
+</ul>
+</li>
+<li>Table widgets
+<ul>
+<li>Table</li>
+<li>TableRow</li>
+<li>SmartTable (via the <a href="https://crates.io/crates/fltk-table">fltk-table crate</a>)</li>
+</ul>
+</li>
+<li>Trees
+<ul>
+<li>Tree</li>
+<li>TreeItem</li>
+</ul>
+</li>
+</ul>
+<h4 id="drawing-primitives"><a class="doc-anchor" href="#drawing-primitives">§</a>Drawing primitives</h4>
+<p>(In the draw module)</p>
+<h4 id="surface-types"><a class="doc-anchor" href="#surface-types">§</a>Surface types:</h4>
+<ul>
+<li>Printer.</li>
+<li>ImageSurface.</li>
+<li>SvgFileSurface.</li>
+</ul>
+<h4 id="gui-designer"><a class="doc-anchor" href="#gui-designer">§</a>GUI designer</h4>
+<p>fltk-rs supports FLUID, the RAD wysiwyg designer for FLTK.
+Checkout the <a href="https://github.com/fltk-rs/fl2rust">fl2rust crate</a> and <a href="https://github.com/fltk-rs/fl2rust-template">fl2rust template</a>.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=33NdaW08fP8">FLTK Rust: Latest FLUID, fl2rust and fltk-rs</a></li>
+</ul>
+<h3 id="examples"><a class="doc-anchor" href="#examples">§</a>Examples</h3>
+<p>To run the <a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples">examples</a>:</p>
+<div class="example-wrap"><pre class="language-bash"><code>cargo run --example editor
+cargo run --example calculator
+cargo run --example calculator2
+cargo run --example counter
+cargo run --example hello_svg
+cargo run --example hello_button
+cargo run --example fb
+cargo run --example pong
+cargo run --example custom_widgets
+cargo run --example custom_dial
+...</code></pre></div>
+<p>Using custom theming and also FLTK provided default schemes like Gtk:</p>
+<ul>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/hello_svg.rs">hello_svg</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/hello.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/calculator2.rs">calculator2</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/calc2.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/counter3.rs">counter3</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/flutter_like.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/custom_dial.rs">custom_dial</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/dial.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/calculator.rs">calculator</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/calc.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/tabs.rs">tabs</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/tabs.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/counter.rs">counter</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/counter.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/editor.rs">editor</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/editor.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/table.rs">table</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/table.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/charts.rs">charts</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/charts.jpg" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/pong.rs">pong</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/pong.gif" alt="alt_test" /></p>
+</li>
+<li>
+<p><a href="https://github.com/fltk-rs/fltk-rs/tree/master/fltk/examples/frames.rs">frames</a></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-rs/raw/master/screenshots/frames.jpg" alt="alt_test" /></p>
+</li>
+</ul>
+<p>Different frame types which can be used with many different widgets such as Frame, Button widgets, In/Output widgets…etc.</p>
+<p>More interesting examples can be found in the fltk-rs-demos <a href="https://github.com/fltk-rs/demos">repo</a>.
+Also a nice implementation of the 7guis tasks can be found <a href="https://github.com/tdryer/7guis-fltk-rs">here</a>.
+Various advanced examples can also be found <a href="https://github.com/wyhinton/FLTK-RS-Examples">here</a>.</p>
+<h4 id="themes"><a class="doc-anchor" href="#themes">§</a>Themes</h4>
+<p>Additional themes can be found in the <a href="https://github.com/fltk-rs/fltk-theme">fltk-theme crate</a>.</p>
+<ul>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-theme/blob/dfd1e97b62c94d7af9d615cab0ab809226957a3f/screenshots/aero.jpg" alt="screenshots/aero.jpg" /></p>
+</li>
+<li>
+<p><img src="https://github.com/fltk-rs/fltk-theme/blob/dfd1e97b62c94d7af9d615cab0ab809226957a3f/screenshots/black.jpg" alt="screenshots/black.jpg" /></p>
+</li>
+</ul>
+<p>And more…</p>
+<h4 id="extra-widgets"><a class="doc-anchor" href="#extra-widgets">§</a>Extra widgets</h4>
+<p>This crate exposes FLTK’s set of widgets, which are all customizable. Additional custom widgets can be found in the <a href="https://github.com/fltk-rs/fltk-extras">fltk-extras crate</a>.</p>
+<p><img src="https://user-images.githubusercontent.com/37966791/212541355-91062d78-5c5d-4b7a-aa6d-e1be49cff340.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/37966791/212541425-f594a7bc-d7bc-49e5-90f3-03f52d437cce.png" alt="image" /></p>
+<p><img src="https://github.com/fltk-rs/fltk-extras/assets/37966791/a03e1912-7658-48be-a354-2b588b417fd8" alt="ss" /></p>
+<p><img src="https://user-images.githubusercontent.com/37966791/212541392-2cd4fb08-4152-484a-86da-64b2bc476a0e.png" alt="image" /></p>
+<h3 id="tutorials"><a class="doc-anchor" href="#tutorials">§</a>Tutorials</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ygP4egJtmzw">Basics</a></li>
+<li><a href="https://youtu.be/S1NSsHZs6hI">New basics</a> (Uses fltk post 1.0)</li>
+<li><a href="https://youtu.be/rIq2O4vg9fQ">User input</a></li>
+<li><a href="https://youtu.be/tdfFXi4-Yrw">Client-side web todo app</a></li>
+<li><a href="https://youtu.be/enxqU3bhCEs">Create a media player using the vlc crate</a></li>
+<li><a href="https://youtu.be/tXeXHoKG6-I">Custom dialogs</a></li>
+<li><a href="https://www.youtube.com/watch?v=qp5hnRvSxAg">Add drag and drop to the editor example</a></li>
+<li><a href="https://www.youtube.com/watch?v=r9MOpvfBPWs">Drawing things with fltk</a></li>
+<li><a href="https://www.youtube.com/watch?v=Rn2sjfAX4WI">Working with images</a></li>
+<li><a href="https://www.youtube.com/watch?v=okdFx6tv7ds">Audio player with custom widgets</a></li>
+<li><a href="https://www.youtube.com/watch?v=k_P0wG3-dNk">Use FLUID (RAD tool) with Rust</a></li>
+<li><a href="https://www.youtube.com/watch?v=qEPYx1Lw7fY">multiple windows and embedding windows</a></li>
+<li><a href="https://www.youtube.com/watch?v=WCTbPKHXR-o">FLTK Rust tutorial: Improve FLTK’s toggle button appearance!</a></li>
+<li><a href="https://www.youtube.com/watch?v=uCZl0PuMVGo">FLTK Rust: Customizing your app and widgets</a></li>
+<li><a href="https://www.youtube.com/watch?v=pVJ8Yq1kDGs">FLTK Rust: fltk-table, a boilerplate-less table creating crate</a></li>
+<li><a href="https://www.youtube.com/watch?v=rAVHBl3W9W8">FLTK Rust: intro into the fltk-evented crate</a></li>
+<li><a href="https://www.youtube.com/watch?v=33NdaW08fP8">FLTK Rust: Latest FLUID, fl2rust and fltk-rs</a></li>
+</ul>
+<p>More videos in the playlist <a href="https://www.youtube.com/playlist?list=PLHqrrowPLkDu9U-uk60sGM-YWLOJFfLoE">here</a>.
+Some of the demo projects can be found <a href="https://github.com/fltk-rs/demos">here</a>.</p>
+</div></details><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><dl class="item-table"><dt><a class="mod" href="app/index.html" title="mod fltk::app">app</a></dt><dd>Application related methods and functions</dd><dt><a class="mod" href="browser/index.html" title="mod fltk::browser">browser</a></dt><dd>Browser widgets</dd><dt><a class="mod" href="button/index.html" title="mod fltk::button">button</a></dt><dd>Button widgets</dd><dt><a class="mod" href="dialog/index.html" title="mod fltk::dialog">dialog</a></dt><dd>Dialog widgets</dd><dt><a class="mod" href="draw/index.html" title="mod fltk::draw">draw</a></dt><dd>Drawing primitives</dd><dt><a class="mod" href="enums/index.html" title="mod fltk::enums">enums</a></dt><dd>Fltk defined enums: Color, Font, <code>CallbackTrigger</code> etc</dd><dt><a class="mod" href="frame/index.html" title="mod fltk::frame">frame</a></dt><dd>Basic fltk box/frame widget</dd><dt><a class="mod" href="group/index.html" title="mod fltk::group">group</a></dt><dd>Group widgets</dd><dt><a class="mod" href="image/index.html" title="mod fltk::image">image</a></dt><dd>Image types supported by fltk</dd><dt><a class="mod" href="input/index.html" title="mod fltk::input">input</a></dt><dd>Input widgets</dd><dt><a class="mod" href="macros/index.html" title="mod fltk::macros">macros</a></dt><dd>mod macros;</dd><dt><a class="mod" href="menu/index.html" title="mod fltk::menu">menu</a></dt><dd>Menu widgets</dd><dt><a class="mod" href="misc/index.html" title="mod fltk::misc">misc</a></dt><dd>Miscellaneous widgets not fitting a certain group</dd><dt><a class="mod" href="output/index.html" title="mod fltk::output">output</a></dt><dd>Output widgets</dd><dt><a class="mod" href="prelude/index.html" title="mod fltk::prelude">prelude</a></dt><dd>All fltk widget traits and flt error types</dd><dt><a class="mod" href="printer/index.html" title="mod fltk::printer">printer</a></dt><dd>Printing related functions</dd><dt><a class="mod" href="surface/index.html" title="mod fltk::surface">surface</a></dt><dd>Widget surface to image functions</dd><dt><a class="mod" href="table/index.html" title="mod fltk::table">table</a></dt><dd>Table widgets</dd><dt><a class="mod" href="terminal/index.html" title="mod fltk::terminal">terminal</a></dt><dd>Terminal widget</dd><dt><a class="mod" href="text/index.html" title="mod fltk::text">text</a></dt><dd>Text display widgets</dd><dt><a class="mod" href="tree/index.html" title="mod fltk::tree">tree</a></dt><dd>Tree widgets</dd><dt><a class="mod" href="utils/index.html" title="mod fltk::utils">utils</a></dt><dd>General utility functions</dd><dt><a class="mod" href="valuator/index.html" title="mod fltk::valuator">valuator</a></dt><dd>Valuator widgets</dd><dt><a class="mod" href="widget/index.html" title="mod fltk::widget">widget</a></dt><dd>Base Widget
+Basic empty widget</dd><dt><a class="mod" href="window/index.html" title="mod fltk::window">window</a></dt><dd>Window widgets
+Window widgets</dd></dl><h2 id="macros" class="section-header">Macros<a href="#macros" class="anchor">§</a></h2><dl class="item-table"><dt><a class="macro" href="macro.widget_extends.html" title="macro fltk::widget_extends">widget_<wbr>extends</a></dt><dd>Defines a set of convenience functions for constructing and anchoring custom widgets.
+Usage: fltk::widget_extends!(CustomWidget, BaseWidget, member);
+It basically implements Deref and DerefMut on the custom widget, and adds the aforementioned methods.
+This means you can call widget methods directly, for e.x. <code>custom_widget.set_color(enums::Color::Red)</code>.
+For your custom widget to be treated as a widget it would need dereferencing: <code>group.add(&amp;*custom_widget);</code></dd></dl></section></div></main></body></html>

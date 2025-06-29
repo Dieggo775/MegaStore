@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Cursor","DragType","TextAttr","WrapMode"],"struct":["SimpleTerminal","StyleTableEntry","StyleTableEntryExt","TextBuffer","TextDisplay","TextEditor"],"type":["TextEditorPtr"]};

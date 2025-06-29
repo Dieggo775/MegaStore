@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["RgbScaling"],"struct":["AnimGifImage","AnimGifImageFlags","BmpImage","GifImage","IcoImage","IconDirEntry","Image","JpegImage","Pixmap","PngImage","PnmImage","RgbImage","SharedImage","SvgImage","TiledImage","XbmImage","XpmImage"]};

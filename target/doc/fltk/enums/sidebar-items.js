@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CallbackReason","ColorDepth","Cursor","FrameType","LabelType"],"struct":["Align","CallbackTrigger","Color","Damage","Event","Font","Key","Mode","Shortcut"],"type":["EventState"]};

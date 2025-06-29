@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["char_len","decode_uri","filename_expand","hex2rgb","hex2rgba","is","is_ptr_of","open_uri","rgb2hex","rgba2hex","type_name"],"mod":["oncelock"]};

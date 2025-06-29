@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":["widget_extends"],"mod":["app","browser","button","dialog","draw","enums","frame","group","image","input","macros","menu","misc","output","prelude","printer","surface","table","terminal","text","tree","utils","valuator","widget","window"]};
